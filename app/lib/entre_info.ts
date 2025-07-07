@@ -2,7 +2,7 @@ export const entreInfo = {
   empresa: {
     nome: "Entre",
     descricao: "Empresa focada em melhorar as operações dos clientes através de ajustes práticos, automação e implementação de IA",
-    diferencial: "Diferente de consultorias tradicionais, integramos diretamente na rotina do cliente e vinculamos nossa remuneração aos resultados alcançados",
+    diferencial: "Diferente de consultorias tradicionais, integramos diretamente na rotina do cliente",
     proposta_valor: "Transformamos operações empresariais com foco em resultados mensuráveis e implementação prática",
     fundacao: "Empresa moderna com abordagem inovadora em consultoria operacional"
   },
@@ -51,33 +51,27 @@ export const entreInfo = {
     etapas: [
       {
         fase: "Contato Inicial",
-        descricao: "Primeiro contato para entender as necessidades",
-        tempo: "Resposta em até 24 horas úteis"
+        descricao: "Primeiro contato para entender as necessidades"
       },
       {
-        fase: "Diagnóstico Preliminar",
-        descricao: "Análise inicial gratuita da situação atual",
-        investimento: "Gratuito",
-        duracao: "2-3 horas"
+        fase: "Conversa Inicial",
+        descricao: "Análise da situação atual"
       },
       {
-        fase: "Proposta Detalhada",
-        descricao: "Apresentação de plano de ação personalizado com prazos e investimento",
-        formato: "Reunião presencial ou virtual"
+        fase: "Proposta",
+        descricao: "Apresentação de como podemos ajudar"
       },
       {
         fase: "Implementação",
-        descricao: "Execução do projeto com acompanhamento contínuo",
-        pagamento: "Parcelamento disponível"
+        descricao: "Execução do projeto com acompanhamento contínuo"
       }
     ]
   },
   
   diferenciais: [
-    "Comprometimento com a entrega - remuneração atrelada a resultados",
-    "Equipe sênior com experiência prática em operações",
-    "Foco em projetos com potencial real de resultados",
     "Integração direta na rotina do cliente",
+    "Equipe sênior com experiência prática em operações",
+    "Foco em projetos com potencial real de transformação",
     "Metodologia prática, não teórica",
     "Uso de ferramentas modernas de automação e IA"
   ],
@@ -109,32 +103,32 @@ export const entreInfo = {
   
   faq: [
     {
-      pergunta: "Como funciona o diagnóstico gratuito?",
-      resposta: "Realizamos uma análise preliminar de 2-3 horas para entender seus principais desafios operacionais. É uma conversa estruturada onde mapeamos oportunidades iniciais, sem custo ou compromisso."
+      pergunta: "Como começamos?",
+      resposta: "Conversamos. Entendemos sua operação. Identificamos o que pode melhorar. Simples assim."
     },
     {
-      pergunta: "Quanto tempo leva para ver resultados?",
-      resposta: "Os primeiros resultados aparecem já nas primeiras semanas. Projetos completos variam de 2 a 6 meses, dependendo da complexidade e escopo."
+      pergunta: "Quanto tempo leva?",
+      resposta: "Cada operação tem seu tempo. Não prometemos prazos mágicos. Fazemos direito."
     },
     {
-      pergunta: "Como funciona a remuneração por resultados?",
-      resposta: "Parte da nossa remuneração está vinculada aos resultados alcançados. Isso demonstra nossa confiança absoluta na metodologia e nosso comprometimento total com o sucesso do seu projeto."
+      pergunta: "Como funciona o pagamento?",
+      resposta: "Conversamos sobre isso quando fizer sentido. Cada projeto é único."
     },
     {
-      pergunta: "Precisamos parar nossas operações durante o projeto?",
-      resposta: "Não! Nossa metodologia permite implementações graduais sem interromper sua operação. Trabalhamos integrados à sua rotina."
+      pergunta: "Precisamos parar nossa operação?",
+      resposta: "Não. Trabalhamos integrados à sua rotina. A transformação acontece enquanto você opera."
     },
     {
-      pergunta: "Vocês atendem empresas de qual porte?",
-      resposta: "Atendemos desde pequenas empresas até grandes corporações. O importante é ter genuína vontade de melhorar as operações e abertura para mudanças."
+      pergunta: "Que tipo de empresa vocês atendem?",
+      resposta: "Empresas que querem evoluir. Tamanho é detalhe. Vontade de melhorar é fundamental."
     },
     {
-      pergunta: "Quais ferramentas vocês mais utilizam?",
-      resposta: "Utilizamos principalmente ClickUp, Notion, Make e Zapier para automações. Mas nos adaptamos às ferramentas já utilizadas pelo cliente quando possível."
+      pergunta: "Quais ferramentas usam?",
+      resposta: "ClickUp, Notion, Make, Zapier e o que mais fizer sentido. Ferramenta é meio, não fim."
     },
     {
-      pergunta: "Como funciona o suporte após a implementação?",
-      resposta: "Oferecemos suporte continuado para garantir que as melhorias sejam sustentáveis. Os termos específicos são definidos em cada proposta."
+      pergunta: "E depois da implementação?",
+      resposta: "Continuamos juntos enquanto fizer sentido. Sem amarras, sem drama."
     }
   ]
 };

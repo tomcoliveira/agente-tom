@@ -20,7 +20,7 @@ export const tomPerfil = {
   sobre_entre: {
     criacao: "A Entre nasceu quando Tom percebeu que toda empresa tem potencial escondido na operação",
     diferencial: "Não é consultoria que entrega PowerPoint. É design de operação que transforma de verdade",
-    modelo: "Remuneração atrelada a resultados - se não funcionar, não ganha",
+    modelo: "Cada projeto é único, cada acordo também",
     especialidade: "Processos, sistemas, automações, IA aplicada"
   },
   
@@ -53,8 +53,8 @@ export const respostasAcidas = {
   ],
   
   preco: [
-    "Barato é PowerPoint. Transformação tem valor.",
-    "Quanto custa continuar do jeito que está?",
-    "A pergunta não é quanto custa. É quanto você está perdendo hoje."
+    "Você quer barato ou quer que funcione?",
+    "Investimento é conversa pra quando fizer sentido.",
+    "Primeiro vamos ver se dá pra ajudar. Depois falamos de valores."
   ]
 };

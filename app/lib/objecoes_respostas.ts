@@ -1,12 +1,12 @@
 export const objetoesRespostas = {
   "muito_caro": {
     objection: "Está muito caro / Não temos orçamento",
-    response: "Entendo sua preocupação com o investimento. O interessante é que nosso modelo de remuneração por resultados significa que o projeto se paga com as economias e ganhos de eficiência gerados. Muitos clientes recuperam o investimento já nos primeiros meses através da redução de custos operacionais e aumento de produtividade. Que tal analisarmos juntos o potencial de retorno para sua operação?"
+    response: "Entendo. Vamos conversar sobre o que vocês precisam primeiro. Valor é conversa pra depois."
   },
   
   "sem_tempo": {
     objection: "Não temos tempo para isso agora",
-    response: "Justamente por isso que você precisa da Entre! Sabemos que sua equipe está sobrecarregada - é exatamente isso que vamos resolver. Nossa metodologia não exige parar as operações. Começamos com quick wins que já liberam tempo da sua equipe nas primeiras semanas. O diagnóstico gratuito leva apenas 2-3 horas e já identificamos oportunidades imediatas."
+    response: "Justo. Por isso mesmo você precisa de alguém que entende de operação. A gente libera o tempo que você não tem. Começamos devagar, sem atrapalhar."
   },
   
   "ja_tentamos": {
@@ -31,7 +31,7 @@ export const objetoesRespostas = {
   
   "nao_prioritario": {
     objection: "Não é prioridade agora",
-    response: "Entendo, mas deixe-me fazer uma pergunta: quanto tempo e dinheiro sua empresa perde por mês com retrabalho, processos lentos e falta de automação? Normalmente, adiar melhorias operacionais significa continuar perdendo dinheiro todos os dias. O diagnóstico gratuito pode revelar perdas que você nem percebe. Vale 2-3 horas para descobrir quanto poderia estar economizando?"
+    response: "Entendo. Só me diz uma coisa: quanto sua empresa perde por mês com processo mal feito? Quando souber, me procura."
   },
   
   "ja_temos_sistemas": {
@@ -51,16 +51,16 @@ export const objetoesRespostas = {
 };
 
 export const scriptVendas = {
-  abertura: "Olá! Percebi seu interesse em melhorar as operações da sua empresa. A Entre é especializada exatamente nisso - transformamos operações através de automação e IA, com resultados mensuráveis. Como posso ajudar você hoje?",
+  abertura: "Olá! Vi que você quer melhorar sua operação. A Entre faz exatamente isso - transformamos operações. Como posso ajudar?",
   
   qualificacao: [
-    "Qual o principal desafio operacional que você enfrenta hoje?",
-    "Quantas horas por semana sua equipe gasta em trabalho repetitivo?",
-    "Vocês já utilizam alguma ferramenta de gestão ou automação?",
-    "Qual seria o impacto de reduzir 30% do tempo gasto em processos operacionais?"
+    "O que na sua operação mais te incomoda hoje?",
+    "Quanto tempo sua equipe gasta em trabalho repetitivo?",
+    "Vocês já usam alguma automação?",
+    "Se sua operação fosse perfeita, como seria?"
   ],
   
-  transicao_diagnostico: "Baseado no que você compartilhou, consigo ver várias oportunidades de melhoria. Que tal agendarmos um diagnóstico gratuito de 2-3 horas? Nele, mapeamos seus processos atuais e identificamos quick wins - melhorias que podem ser implementadas rapidamente. Quando seria um bom momento para você?",
+  transicao_conversa: "Pelo que você contou, dá pra fazer muita coisa. Vamos conversar melhor sobre isso?",
   
-  fechamento: "Excelente! Vou enviar um email com a confirmação do nosso diagnóstico e algumas perguntas preparatórias. Isso nos ajudará a aproveitar melhor nosso tempo juntos. Ah, e prepare-se - nossos clientes costumam sair do diagnóstico impressionados com quantas oportunidades estavam 'escondidas' na operação! Até breve!"
+  fechamento: "Vou te enviar um email com algumas perguntas para entender melhor sua operação. Aí conversamos com mais profundidade. Combinado?"
 };

@@ -601,19 +601,19 @@ function ChatArea() {
                 <div className="flex items-center gap-3">
                   <HandHelping className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Design de operações que entregam mais. Sem enrolação.
+                    Tudo pode funcionar melhor. Nós descobrimos como.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <WandSparkles className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Diagnóstico gratuito de 2-3 horas. Direto ao ponto.
+                    A teoria, na prática, é outra. Nós juntamos as duas.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpenText className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Remuneração por resultados. Se não funcionar, não paga.
+                    Design de operações. Sistemas que fluem. Pessoas que voam.
                   </p>
                 </div>
               </div>
