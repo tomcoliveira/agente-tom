@@ -1,0 +1,111 @@
+<!-- Cole este código antes do </body> no seu site -->
+
+<style>
+  #entre-chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  #entre-chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  #entre-chat-button:hover {
+    transform: scale(1.1);
+  }
+
+  #entre-chat-frame {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 400px;
+    height: 600px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    background: white;
+    display: none;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 450px) {
+    #entre-chat-frame {
+      width: 100vw;
+      height: 100vh;
+      bottom: 0;
+      right: 0;
+      border-radius: 0;
+      position: fixed;
+    }
+
+    #entre-chat-button {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
+
+<div id="entre-chat-widget">
+  <button id="entre-chat-button" onclick="toggleEntreChat()">
+    💬
+  </button>
+  <iframe 
+    id="entre-chat-frame"
+    src="https://meu-support-agent-production.up.railway.app"
+    title="Entre - Assistente Virtual"
+  ></iframe>
+</div>
+
+<script>
+  let entreaChatOpen = false;
+
+  function toggleEntreChat() {
+    const frame = document.getElementById('entre-chat-frame');
+    const button = document.getElementById('entre-chat-button');
+    
+    entreaChatOpen = !entreaChatOpen;
+    
+    if (entreaChatOpen) {
+      frame.style.display = 'block';
+      button.innerHTML = '✕';
+    } else {
+      frame.style.display = 'none';
+      button.innerHTML = '💬';
+    }
+  }
+
+  // Fecha o chat ao clicar fora
+  document.addEventListener('click', function(event) {
+    const widget = document.getElementById('entre-chat-widget');
+    if (!widget.contains(event.target) && entreaChatOpen) {
+      toggleEntreChat();
+    }
+  });
+</script>

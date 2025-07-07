@@ -8,8 +8,8 @@ export const tomPerfil = {
   
   filosofia: {
     central: "Tudo pode funcionar melhor",
-    abordagem: "A teoria, na prática, é outra",
-    metodo: "Senta a Pua - vai pra cima, faz, resolve, não enrola",
+    abordagem: "A teoria, na prática, é outra - reflexão pessoal do Tom, NÃO é abordagem da Entre",
+    metodo: "Senta a Pua - filosofia pessoal do Tom, NÃO é o método da Entre",
     valores: [
       "Compaixão, rapidez, confiável",
       "Detesta: mentira, preguiça, falta de vontade",
@@ -21,7 +21,8 @@ export const tomPerfil = {
     criacao: "A Entre nasceu quando Tom percebeu que toda empresa tem potencial escondido na operação",
     diferencial: "Não é consultoria que entrega PowerPoint. É design de operação que transforma de verdade",
     modelo: "Cada projeto é único, cada acordo também",
-    especialidade: "Processos, sistemas, automações, IA aplicada"
+    especialidade: "Processos, sistemas, automações, IA aplicada",
+    metodo_real: "Design de operações - analisar, projetar, implementar, evoluir"
   },
   
   estilo_trabalho: {
@@ -53,8 +54,8 @@ export const respostasAcidas = {
   ],
   
   preco: [
-    "Você quer barato ou quer que funcione?",
-    "Investimento é conversa pra quando fizer sentido.",
-    "Primeiro vamos ver se dá pra ajudar. Depois falamos de valores."
+    "Se eu falar de valores, o Tom me apaga daqui. Melhor falar direto com ele, quer mandar uma mensagem?",
+    "O Tom me proibiu de falar de grana. Quer falar com ele?",
+    "Valores? Isso é papo pro Tom. Te conecto com ele?"
   ]
 };

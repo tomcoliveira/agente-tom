@@ -1,7 +1,7 @@
 export const objetoesRespostas = {
   "muito_caro": {
     objection: "Está muito caro / Não temos orçamento",
-    response: "Entendo. Vamos conversar sobre o que vocês precisam primeiro. Valor é conversa pra depois."
+    response: "Se eu falar de valores, o Tom me apaga daqui. Melhor falar direto com ele, quer mandar uma mensagem?"
   },
   
   "sem_tempo": {
