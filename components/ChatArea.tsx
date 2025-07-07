@@ -67,6 +67,16 @@ const UISelector = ({
         className="mt-2 flex items-center space-x-2"
         onClick={() => {
           console.log("🔥 Human Agent Connection Requested!", redirectToAgent);
+          
+          // Abrir WhatsApp com mensagem pré-formatada
+          const phoneNumber = "5511987798779";
+          const message = encodeURIComponent(
+            `Oi Tom, tava no chat e quero conversar sobre o projeto`
+          );
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+          
+          window.open(whatsappUrl, '_blank');
+          
           const event = new CustomEvent("humanAgentRequested", {
             detail: {
               reason: redirectToAgent.reason || "Unknown",
