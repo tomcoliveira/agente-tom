@@ -1,5 +1,7 @@
 // Exemplo de estrutura para múltiplos agentes
 
+import { entreInfo } from './entre_info';
+
 export const agentes = {
   entre: {
     nome: "Assistente Entre",
