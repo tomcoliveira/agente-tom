@@ -108,7 +108,7 @@ export const entreInfo = {
     },
     {
       pergunta: "Quanto tempo leva?",
-      resposta: "Cada operação tem seu tempo. Não prometemos prazos mágicos. Fazemos direito."
+      resposta: "Dep<boltEndCtag>ende do tamanho da operação e do que precisa ser feito. Conversamos e alinhamos expectativas reais."
     },
     {
       pergunta: "Como funciona o pagamento?",

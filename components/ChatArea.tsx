@@ -71,7 +71,7 @@ const UISelector = ({
           // Abrir WhatsApp com mensagem pré-formatada
           const phoneNumber = "5511987798779";
           const message = encodeURIComponent(
-            `Oi Tom, tava no chat e quero conversar sobre o projeto`
+            `Oi Tom, tudo bem? To no site da Entre e quero conversar sobre o projeto`
           );
           const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
           
@@ -244,15 +244,15 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
           <Avatar className="w-10 h-10 border">
             <AvatarImage
               src="/ant-logo.svg"
-              alt="AI Assistant Avatar"
+              alt="Alcides Avatar"
               width={40}
               height={40}
             />
-            <AvatarFallback>AI</AvatarFallback>
+            <AvatarFallback>A</AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="text-sm font-medium leading-none">Assistente Entre</h3>
-            <p className="text-sm text-muted-foreground">Entre - Design de Operações</p>
+            <h3 className="text-sm font-medium leading-none">Alcides</h3>
+            <p className="text-sm text-muted-foreground">Assistente da Entre - Design de Operações</p>
           </div>
         </>
       )}
@@ -599,7 +599,7 @@ function ChatArea() {
               <Avatar className="w-10 h-10 mb-4 border">
                 <AvatarImage
                   src="/ant-logo.svg"
-                  alt="AI Assistant Avatar"
+                  alt="Alcides Avatar"
                   width={40}
                   height={40}
                 />
@@ -647,9 +647,9 @@ function ChatArea() {
                       <Avatar className="w-8 h-8 mr-2 border">
                         <AvatarImage
                           src="/ant-logo.svg"
-                          alt="AI Assistant Avatar"
+                          alt="Alcides Avatar"
                         />
-                        <AvatarFallback>AI</AvatarFallback>
+                        <AvatarFallback>A</AvatarFallback>
                       </Avatar>
                     )}
                     <div
