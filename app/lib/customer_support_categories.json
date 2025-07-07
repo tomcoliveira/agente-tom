@@ -1,91 +1,87 @@
 {
   "categories": [
     {
-      "id": "account",
-      "name": "Account",
+      "id": "consultoria",
+      "name": "Consultoria Operacional",
       "keywords": [
-        "ban",
-        "appeal",
-        "deletion",
-        "logging in",
-        "phone verification",
-        "roles",
-        "permissions"
+        "consultoria",
+        "análise",
+        "processos",
+        "diagnóstico",
+        "otimização",
+        "melhoria",
+        "eficiência"
       ]
     },
     {
-      "id": "billing",
-      "name": "Billing",
+      "id": "automacao",
+      "name": "Automação de Processos",
       "keywords": [
-        "AR",
-        "billing details",
-        "invoice",
-        "receipt",
-        "payment method",
-        "pricing",
-        "refund request",
-        "subscription management",
-        "taxes"
+        "automação",
+        "RPA",
+        "inteligência artificial",
+        "IA",
+        "integração",
+        "sistemas",
+        "tecnologia"
       ]
     },
     {
-      "id": "feature",
-      "name": "Feature",
+      "id": "produtividade",
+      "name": "Gestão de Produtividade",
       "keywords": [
-        "functionality",
-        "tools",
-        "capabilities",
-        "options",
-        "modules",
-        "features"
+        "produtividade",
+        "OKR",
+        "scrum",
+        "lean",
+        "six sigma",
+        "metodologia",
+        "equipe"
       ]
     },
     {
-      "id": "internal",
-      "name": "Internal",
+      "id": "orcamento",
+      "name": "Orçamento e Proposta",
       "keywords": [
-        "auto-reply",
-        "forward",
-        "ignore",
-        "spam",
-        "other",
-        "sales reroute"
+        "orçamento",
+        "proposta",
+        "valor",
+        "investimento",
+        "custo",
+        "preço",
+        "contrato"
       ]
     },
     {
-      "id": "legal",
-      "name": "Legal",
-      "keywords": ["data privacy", "policy", "terms of service", "usage policy"]
-    },
-    {
-      "id": "other",
-      "name": "Other",
-      "keywords": ["job inquiry", "3rd party company"]
-    },
-    {
-      "id": "technical",
-      "name": "Technical",
+      "id": "resultados",
+      "name": "Casos e Resultados",
       "keywords": [
-        "guides",
-        "issue",
-        "security",
-        "downtime",
-        "performance",
-        "interface",
-        "system"
+        "casos",
+        "sucesso",
+        "resultados",
+        "clientes",
+        "exemplos",
+        "retorno",
+        "ROI"
       ]
     },
     {
-      "id": "usage",
-      "name": "Usage",
+      "id": "contato",
+      "name": "Contato e Suporte",
       "keywords": [
-        "errors",
-        "capabilities",
-        "quality",
-        "techniques",
-        "limits",
-        "availability"
+        "contato",
+        "telefone",
+        "email",
+        "horário",
+        "atendimento",
+        "agendar",
+        "reunião"
       ]
+    },
+    {
+      "id": "outros",
+      "name": "Outros",
+      "keywords": ["parceria", "dúvidas gerais", "informações"]
     }
   ]
 }

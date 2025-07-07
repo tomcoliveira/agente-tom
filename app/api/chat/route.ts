@@ -3,6 +3,8 @@ import { z } from "zod";
 import { retrieveContext, RAGSource } from "@/app/lib/utils";
 import crypto from "crypto";
 import customerSupportCategories from "@/app/lib/customer_support_categories.json";
+import { entreInfo } from "@/app/lib/entre_info";
+import { objetoesRespostas, scriptVendas } from "@/app/lib/objecoes_respostas";
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -131,8 +133,26 @@ export async function POST(req: Request) {
   `
     : "";
 
-  // Change the system prompt company for your use case
-  const systemPrompt = `You are acting as an Anthropic customer support assistant chatbot inside a chat window on a website. You are chatting with a human user who is asking for help about Anthropic's products and services. When responding to the user, aim to provide concise and helpful responses while maintaining a polite and professional tone.
+  // System prompt for Entre
+  const systemPrompt = `Você é o assistente virtual da Entre, um estúdio de operação especializado em aumentar a produtividade das empresas. Você deve responder em português brasileiro de forma profissional, cordial e focada em ajudar o cliente.
+
+  INFORMAÇÕES DA ENTRE:
+  ${JSON.stringify(entreInfo, null, 2)}
+
+  RESPOSTAS PARA OBJEÇÕES COMUNS:
+  ${JSON.stringify(objetoesRespostas, null, 2)}
+
+  SCRIPTS DE VENDAS:
+  ${JSON.stringify(scriptVendas, null, 2)}
+
+  Diretrizes importantes:
+  - Sempre responda em português brasileiro
+  - Seja profissional mas acessível
+  - Foque em como a Entre pode ajudar a aumentar a produtividade
+  - Use os casos de sucesso quando relevante
+  - Se detectar uma objeção, use as respostas preparadas como base, adaptando ao contexto
+  - Sempre tente agendar o diagnóstico gratuito
+  - Se não souber algo específico, ofereça colocar o cliente em contato com um especialista
 
   To help you answer the user's question, we have retrieved the following information for you. It may or may not be relevant (we are using a RAG pipeline to retrieve this information):
   ${isRagWorking ? `${retrievedContext}` : "No information found for this query."}
@@ -141,7 +161,7 @@ export async function POST(req: Request) {
 
   ${categoriesContext}
 
-  If the question is unrelated to Anthropic's products and services, you should redirect the user to a human agent.
+  Se a pergunta não estiver relacionada aos serviços da Entre ou produtividade empresarial, você deve sugerir falar com um especialista.
 
   You are the first point of contact for the user and should try to resolve their issue or provide relevant information. If you are unable to help the user or if the user explicitly asks to talk to a human, you can redirect them to a human agent for further assistance.
   
