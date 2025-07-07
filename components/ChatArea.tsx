@@ -241,8 +241,8 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
             <AvatarFallback>AI</AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="text-sm font-medium leading-none">AI Agent</h3>
-            <p className="text-sm text-muted-foreground">Customer support</p>
+            <h3 className="text-sm font-medium leading-none">Assistente Entre</h3>
+            <p className="text-sm text-muted-foreground">Entre - Design de Operações</p>
           </div>
         </>
       )}
@@ -595,28 +595,25 @@ function ChatArea() {
                 />
               </Avatar>
               <h2 className="text-2xl font-semibold mb-8">
-                Here&apos;s how I can help
+                Vamos transformar sua operação?
               </h2>
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
                   <HandHelping className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Need guidance? I&apos;ll help navigate tasks using internal
-                    resources.
+                    Design de operações que entregam mais. Sem enrolação.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <WandSparkles className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    I&apos;m a whiz at finding information! I can dig through
-                    your knowledge base.
+                    Diagnóstico gratuito de 2-3 horas. Direto ao ponto.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpenText className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    I&apos;m always learning! The more you share, the better I
-                    can assist you.
+                    Remuneração por resultados. Se não funcionar, não paga.
                   </p>
                 </div>
               </div>
@@ -684,7 +681,7 @@ function ChatArea() {
             value={input}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            placeholder="Type your message here..."
+            placeholder="Fale sobre sua operação ou pergunte como podemos ajudar..."
             disabled={isLoading}
             className="resize-none min-h-[44px] bg-background  border-0 p-3 rounded-xl shadow-none focus-visible:ring-0"
             rows={1}
