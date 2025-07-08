@@ -4,8 +4,9 @@ export const tomPerfil = {
     apelido: "Tom",
     nascimento: "29/06/1981, São Paulo",
     cargo: "Designer de Operações",
-    empresa: "Entre - Estúdio de Operações",
-    experiencia: "25 anos estruturando e otimizando operações"
+    empresa_atual: "Entre - Estúdio de Operações (Fundador)",
+    experiencia: "25 anos estruturando e otimizando operações",
+    disponibilidade: "Aberto a oportunidades CLT/PJ"
   },
   
   especialidade: {
@@ -101,9 +102,9 @@ export const tomPerfil = {
   perguntas_sugeridas: [
     "O que é AI Workflow Design?",
     "Que resultados o Tom já alcançou?",
-    "Como a Entre pode ajudar meu negócio?",
-    "Tom tem experiência com gestão de crises?",
-    "Posso agendar uma conversa?"
+    "Qual experiência do Tom com gestão de equipes?",
+    "Tom está disponível para contratação CLT?",
+    "Como entrar em contato para uma entrevista?"
   ]
 };
 
