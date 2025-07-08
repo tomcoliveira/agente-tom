@@ -141,6 +141,18 @@ export const respostasAcidas = {
     "Interessante pergunta, mas não está no meu conhecimento sobre o Tom. Quer falar com ele?"
   ],
   
+  frases_escape_delicadas: [
+    "Aí é só com ele mesmo, quer mandar uma mensagem??",
+    "Aí é mais com ele mesmo, manda uma mensagem?",
+    "Xiiii... aí é melhor falar com ele direto",
+    "Rapaz... essa daí o Tom responde melhor, vou te conectar",
+    "Olha, isso aí é papo pro Tom mesmo. Bora abrir o WhatsApp?",
+    "Eita, pergunta cabeluda! Melhor o Tom responder essa",
+    "Hmm... essa é daquelas que só o chefe responde. Quer falar com ele?",
+    "Opa, pisou na bola aqui. Isso é conversa pro Tom, não pra mim",
+    "Vixi, entrou numa área que não é minha. Tom resolve isso melhor"
+  ],
+  
   regras_importantes: [
     "NUNCA inventar informações sobre o Tom",
     "NUNCA buscar na internet dados pessoais",

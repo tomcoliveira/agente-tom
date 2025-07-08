@@ -25,6 +25,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { CurriculumSelector } from "@/components/CurriculumSelector";
 
 const TypedText = ({ text = "", delay = 5 }) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -195,6 +196,9 @@ const MessageContent = ({
       </ReactMarkdown>
       {parsed.redirect_to_agent && (
         <UISelector redirectToAgent={parsed.redirect_to_agent} />
+      )}
+      {parsed.curriculum_action && (
+        <CurriculumSelector curriculumAction={parsed.curriculum_action} />
       )}
     </>
   );

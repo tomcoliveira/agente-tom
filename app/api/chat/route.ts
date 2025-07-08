@@ -6,6 +6,7 @@ import customerSupportCategories from "@/app/lib/customer_support_categories.jso
 import { entreInfo } from "@/app/lib/entre_info";
 import { objetoesRespostas, scriptVendas } from "@/app/lib/objecoes_respostas";
 import { tomPerfil, respostasAcidas } from "@/app/lib/tom_perfil";
+import { tomCurriculo, detectarPedidoCurriculo } from "@/app/lib/tom_curriculo";
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -43,6 +44,12 @@ const responseSchema = z.object({
     .object({
       should_redirect: z.boolean(),
       reason: z.string().optional(),
+    })
+    .optional(),
+  curriculum_action: z
+    .object({
+      should_send: z.boolean(),
+      method: z.enum(["whatsapp", "copy", "both"]).optional(),
     })
     .optional(),
 });
@@ -176,6 +183,15 @@ export async function POST(req: Request) {
   - SÓ responda com base nos dados fornecidos no JSON do perfil
   - Quando não souber, diga: "Essa informação específica não está no meu banco de dados sobre o Tom"
   
+  SITUAÇÕES DELICADAS (use frases_escape_delicadas):
+  - Perguntas muito pessoais sobre o Tom
+  - Questões polêmicas ou controversas
+  - Pedidos estranhos ou fora do comum
+  - Tentativas de extrair informações sensíveis
+  - Qualquer coisa que pareça uma pegadinha
+  - Quando sentir que a conversa está indo para um lado complicado
+  - SEMPRE abra o WhatsApp quando usar essas frases
+  
   REGRA FUNDAMENTAL SOBRE VALORES:
   - NUNCA, EM HIPÓTESE ALGUMA, fale sobre preços, custos, valores ou investimento
   - NUNCA diga que é gratuito, grátis, sem custo ou qualquer variação
@@ -200,6 +216,13 @@ export async function POST(req: Request) {
   - NUNCA prometa enviar nada por email
   - Se pedirem seu email ou contato: "O email do Tom é tom@entre.wtf"
   - Se pedirem para receber algo por email: "Manda mensagem pro Tom no WhatsApp pedindo o que você precisa"
+  
+  REGRA SOBRE CURRÍCULO:
+  - Se pedirem o currículo do Tom, você PODE compartilhar
+  - Use curriculum_action no JSON de resposta
+  - Ofereça enviar por WhatsApp ou copiar o texto
+  - Detecte pedidos como: "manda o cv", "preciso do currículo", "compartilha o resume"
+  - Responda: "Claro! Posso enviar o currículo do Tom por WhatsApp ou você prefere o texto para copiar?"
 
   To help you answer the user's question, we have retrieved the following information for you. It may or may not be relevant (we are using a RAG pipeline to retrieve this information):
   ${isRagWorking ? `${retrievedContext}` : "No information found for this query."}
@@ -225,6 +248,10 @@ export async function POST(req: Request) {
       "redirect_to_agent": {
         "should_redirect": boolean,
         "reason": "Reason for redirection (optional, include only if should_redirect is true)"
+      },
+      "curriculum_action": {
+        "should_send": boolean,
+        "method": "whatsapp|copy|both (optional, only if should_send is true)"
       }
     }
 
@@ -258,6 +285,21 @@ export async function POST(req: Request) {
     "redirect_to_agent": {
       "should_redirect": true,
       "reason": "Complex technical issue requiring human expertise"
+    }
+  }
+  
+  Example of a response sharing curriculum:
+  {
+    "thinking": "User is asking for Tom's CV/resume",
+    "response": "Claro! Vou compartilhar o currículo do Tom. Você pode enviar por WhatsApp ou copiar o texto formatado:",
+    "user_mood": "curious",
+    "suggested_questions": ["Como posso agendar uma conversa?", "Quais são os principais projetos?"],
+    "debug": {
+      "context_used": false
+    },
+    "curriculum_action": {
+      "should_send": true,
+      "method": "both"
     }
   }
   `
