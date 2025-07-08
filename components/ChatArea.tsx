@@ -153,7 +153,7 @@ const MessageContent = ({
     const timer = setTimeout(() => {
       setError(true);
       setThinking(false);
-    }, 30000);
+    }, 60000); // Aumentado para 60 segundos
 
     try {
       const result = JSON.parse(content);

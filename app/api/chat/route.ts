@@ -80,7 +80,12 @@ export async function POST(req: Request) {
   const latestMessage = messages[messages.length - 1].content;
 
   console.log("📝 Latest Query:", latestMessage);
+  console.log("🤖 Model requested:", model);
   measureTime("User Input Received");
+  
+  // Fallback para Claude 3.5 Sonnet se o modelo não estiver disponível
+  const modelToUse = model === "claude-opus-4-20250514" ? "claude-3-5-sonnet-20240620" : model;
+  console.log("🔧 Model being used:", modelToUse);
 
   // Prepare debug data
   const MAX_DEBUG_LENGTH = 1000;
@@ -333,8 +338,8 @@ export async function POST(req: Request) {
     });
 
     const response = await anthropic.messages.create({
-      model: model,
-      max_tokens: 1000,
+      model: modelToUse,
+      max_tokens: 4096,
       messages: anthropicMessages,
       system: systemPrompt,
       temperature: 0.3,
