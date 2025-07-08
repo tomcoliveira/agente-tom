@@ -83,8 +83,8 @@ export async function POST(req: Request) {
   console.log("🤖 Model requested:", model);
   measureTime("User Input Received");
   
-  // Fallback para Claude 3.5 Sonnet se o modelo não estiver disponível
-  const modelToUse = model === "claude-opus-4-20250514" ? "claude-3-5-sonnet-20240620" : model;
+  // Usar o modelo solicitado (Claude 4)
+  const modelToUse = model;
   console.log("🔧 Model being used:", modelToUse);
 
   // Prepare debug data
