@@ -140,6 +140,7 @@ const MessageContent = ({
     user_mood?: string;
     suggested_questions?: string[];
     redirect_to_agent?: { should_redirect: boolean; reason: string };
+    curriculum_action?: { should_send: boolean; method?: "whatsapp" | "copy" | "both" };
     debug?: {
       context_used: boolean;
     };
