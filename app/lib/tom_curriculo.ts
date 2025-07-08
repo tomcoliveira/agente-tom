@@ -1,5 +1,5 @@
 export const tomCurriculo = {
-  pdf_url: "https://tom.entre.wtf/cv-tom-oliveira.pdf",
+  pdf_url: "https://drive.google.com/file/d/1QgcxWDfX-PpcTRNuJWa3EfaDyeLXFXrC/view?usp=sharing",
   
   mensagens_envio: {
     solicitar: "Para receber meu currículo completo, preciso de algumas informações suas.",

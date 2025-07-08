@@ -30,7 +30,8 @@ export const tomPerfil = {
       "Reestruturação completa de operações em múltiplas empresas",
       "Co-criação da metodologia Pop-Up",
       "Liderança de auditoria com Big 4"
-    ]
+    ],
+    mencionar_como: "alguns dos resultados" // NÃO usar "resultados comprovados"
   },
   
   filosofia: {
