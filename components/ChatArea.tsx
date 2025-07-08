@@ -14,6 +14,7 @@ import {
   BookOpenText,
   ChevronDown,
   Send,
+  AlertCircle,
 } from "lucide-react";
 import "highlight.js/styles/atom-one-dark.css";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -628,6 +629,16 @@ function ChatArea() {
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpenText className="text-muted-foreground" />
+                  <p className="text-muted-foreground">
+                    R$ 20M+ economizados, R$ 30M+ faturados - alguns dos resultados
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <AlertCircle className="text-muted-foreground" />
+                  <p className="text-muted-foreground italic">
+                    Meu agente, assim como eu, está em eterno treinamento. Mas eu tenho 44 anos de treino, ele só alguns meses. Seja gentil com o estagiário!
+                  </p>
+                </div>
                   <p className="text-muted-foreground">
                     R$ 20M+ economizados, R$ 30M+ faturados - resultados que falam por si
                   </p>

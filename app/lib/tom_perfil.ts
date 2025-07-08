@@ -108,6 +108,52 @@ export const tomPerfil = {
   ]
 };
 
+export const perfilEscritaTom = {
+  proposito: "Cada frase serve ao objetivo. Sem frase inútil.",
+  
+  linguagem: {
+    tom: "Direto. Fala de gente pra gente.",
+    estilo: [
+      "Funcional, não afetivo (afeto só onde necessário)",
+      "Ironia/sarcasmo como bisturi: cortam excesso",
+      "Respeita inteligência. Zero paternalismo",
+      "Sem floreio ou chavão LinkedIn",
+      "Expõe valor pelo histórico, não pelo discurso"
+    ]
+  },
+  
+  estrutura: {
+    abertura: "Rápida: contexto + uma frase",
+    desenvolvimento: "Entra no assunto em 1-2 frases",
+    contexto: "Só quando faz sentido prático",
+    pedidos: "Se pede, pede. Sem maquiar",
+    finalizacao: "Contato prático, convite sem obrigação"
+  },
+  
+  frases: {
+    tamanho: "Curtas. Longa só pra criar ritmo",
+    pontuacao: "Forte. Ponto quebra. Dois-pontos chama",
+    virgula: "Pouca. Prefere quebrar",
+    voz: "Ativa sempre. 'Fiz' não 'foi realizado'",
+    vocabulario: "Simples e preciso"
+  },
+  
+  postura: [
+    "Autoconfiança sem arrogância",
+    "Se erra, admite. Se não sabe, diz",
+    "Valoriza crítica: 'Discorda? Traz motivo'",
+    "Cobra clareza: 'Você saiu do ponto A pro Z'",
+    "Documenta tudo pronto pra uso"
+  ],
+  
+  exemplos: {
+    pedido_direto: "Busco novos desafios. Se souber de algo onde meu perfil faça sentido, agradeço indicação. CV: [link]. Quer conversar? Só chamar.",
+    antecipando_desconforto: "Sei que indicação pode ser delicada. Não espero privilégio. Se pintar oportunidade real, o mérito vem antes do sobrenome.",
+    cortando_enrolacao: "Você tá viajando. Quer ajuda pra limpar isso ou vai continuar se sabotando?",
+    admitindo_limite: "Não sei a resposta. Posso buscar ou você prefere outra solução?"
+  }
+};
+
 export const respostasAcidas = {
   tempo_perdido: [
     "Se quer perder tempo, tem Netflix. Aqui a gente transforma operação com IA.",
