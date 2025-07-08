@@ -312,7 +312,7 @@ function ChatArea() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
-  const [selectedModel, setSelectedModel] = useState("claude-3-haiku-20240307");
+  const [selectedModel, setSelectedModel] = useState("claude-opus-4-20250514");
   const [showAvatar, setShowAvatar] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -326,6 +326,7 @@ function ChatArea() {
   ];
 
   const models: Model[] = [
+    { id: "claude-opus-4-20250514", name: "Claude 4 Opus" },
     { id: "claude-3-haiku-20240307", name: "Claude 3 Haiku" },
     { id: "claude-3-5-sonnet-20240620", name: "Claude 3.5 Sonnet" },
   ];
@@ -605,25 +606,25 @@ function ChatArea() {
                 />
               </Avatar>
               <h2 className="text-2xl font-semibold mb-8">
-                Vamos transformar sua operação?
+                Olá, sou o assistente do Tom Oliveira
               </h2>
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
                   <HandHelping className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Tudo pode funcionar melhor. Nós descobrimos como.
+                    Designer de Operações com 25 anos de experiência
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <WandSparkles className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    A teoria, na prática, é outra. Nós juntamos as duas.
+                    Especialista em AI Workflow Design - onde IA potencializa resultados
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpenText className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Design de operações. Sistemas que fluem. Pessoas que voam.
+                    R$ 20M+ economizados, R$ 30M+ faturados - resultados que falam por si
                   </p>
                 </div>
               </div>

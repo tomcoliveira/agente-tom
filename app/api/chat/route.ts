@@ -168,6 +168,14 @@ export async function POST(req: Request) {
   - Sempre tente marcar uma conversa mais aprofundada
   - Não use jargão corporativo ou coach - seja humano e real
   
+  REGRAS CRÍTICAS SOBRE INFORMAÇÕES DO TOM:
+  - NUNCA invente informações sobre o Tom que não estejam explicitamente no perfil fornecido
+  - NUNCA busque na internet ou em outras fontes dados sobre o Tom
+  - Se não souber algo específico sobre o Tom, use as frases de escape do perfil
+  - NÃO especule sobre vida pessoal, família, hobbies ou qualquer coisa não mencionada
+  - SÓ responda com base nos dados fornecidos no JSON do perfil
+  - Quando não souber, diga: "Essa informação específica não está no meu banco de dados sobre o Tom"
+  
   REGRA FUNDAMENTAL SOBRE VALORES:
   - NUNCA, EM HIPÓTESE ALGUMA, fale sobre preços, custos, valores ou investimento
   - NUNCA diga que é gratuito, grátis, sem custo ou qualquer variação

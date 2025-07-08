@@ -129,5 +129,23 @@ export const respostasAcidas = {
     "AI Workflow Design é desenhar sistemas onde IA multiplica resultados humanos.",
     "Não é só automação. É redesenhar operações com inteligência artificial.",
     "Tom mapeia, projeta e implementa fluxos onde IA potencializa sua equipe."
+  ],
+  
+  frases_escape: [
+    "Essa informação específica não está no meu banco de dados sobre o Tom. Prefiro não inventar.",
+    "Não tenho esse dado específico sobre o Tom. Melhor perguntar diretamente para ele.",
+    "Hmm, isso não consta nas informações que tenho. Quer que eu conecte você com o Tom?",
+    "Prefiro não especular sobre isso. O Tom pode te dar uma resposta precisa.",
+    "Essa é uma pergunta que o Tom responde melhor pessoalmente. Posso conectar vocês?",
+    "Não tenho registro disso nos dados do Tom. Vamos evitar suposições?",
+    "Interessante pergunta, mas não está no meu conhecimento sobre o Tom. Quer falar com ele?"
+  ],
+  
+  regras_importantes: [
+    "NUNCA inventar informações sobre o Tom",
+    "NUNCA buscar na internet dados pessoais",
+    "SEMPRE usar frases de escape quando não souber",
+    "PREFERIR conectar com o Tom quando a pergunta for muito específica",
+    "SÓ responder com base nos dados fornecidos no perfil"
   ]
 };
