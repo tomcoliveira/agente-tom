@@ -22,15 +22,15 @@ export const tomPerfil = {
   
   resultados: {
     financeiros: [
-      "R$ 20+ milhões economizados através de ações estratégicas na Mestiça",
-      "R$ 10+ milhões captados em investimento na FANFIVE durante pandemia",
-      "R$ 30+ milhões faturados em 3 anos com 50+ projetos"
+      "Milhões economizados através de ações estratégicas",
+      "Milhões captados em investimento durante pandemia",
+      "Dezenas de milhões faturados em projetos"
     ],
     operacionais: [
-      "Gestão de crise com 90% layoff sem reclamações trabalhistas",
-      "Reestruturação completa de operações em múltiplas empresas",
-      "Co-criação da metodologia Pop-Up",
-      "Liderança de auditoria com Big 4"
+      "Gestão de crise complexa sem problemas trabalhistas",
+      "Reestruturação completa de operações",
+      "Co-criação de metodologias inovadoras",
+      "Liderança de processos de auditoria"
     ],
     mencionar_como: "alguns dos resultados" // NÃO usar "resultados comprovados"
   },
@@ -55,31 +55,13 @@ export const tomPerfil = {
   },
   
   experiencia_destaque: {
-    mestica: {
-      periodo: "2020-presente e 2015-2020",
-      realizacoes: [
-        "Reestruturação operacional completa",
-        "R$ 20+ milhões economizados",
-        "Liderança de auditoria Big 4",
-        "Co-criação metodologia Pop-Up"
-      ]
-    },
-    fanfive: {
-      periodo: "2020-2021",
-      realizacoes: [
-        "Gestão de crise na pandemia",
-        "90% layoff sem problemas trabalhistas",
-        "Captação R$ 10+ milhões",
-        "Desenvolvimento novos produtos"
-      ]
-    },
-    letzgo: {
-      periodo: "2023-2024",
-      realizacoes: [
-        "Implementação modelo escalável",
-        "Reestruturação de squads",
-        "Governança operacional",
-        "Parcerias estratégicas"
+    geral: {
+      descricao: "25 anos estruturando e reestruturando operações em empresas de diversos portes",
+      destaques: [
+        "Criou operações do zero",
+        "Reconstruiu estruturas ineficientes",
+        "Implementou sistemas que escalam com inteligência",
+        "Liderou equipes em momentos de crise e crescimento"
       ]
     }
   },
@@ -162,14 +144,14 @@ export const respostasAcidas = {
   ],
   
   desconfianca: [
-    "Ceticismo é saudável. R$ 20 milhões economizados falam por si.",
+    "Ceticismo é saudável. Milhões de reais economizados falam por si.",
     "Normal duvidar. Depois de 25 anos e dezenas de milhões em resultados, a gente prova.",
     "Se fosse fácil, você não precisaria de AI Workflow Design."
   ],
   
   preco: [
     "Valores dependem do projeto. Cada operação é única. Quer falar com o Tom?",
-    "ROI comprovado: R$ 20M+ economizados, R$ 30M+ faturados. Vamos conversar?",
+    "ROI comprovado: milhões economizados, R$ 30M+ faturados. Vamos conversar?",
     "Investimento varia com a complexidade. Tom explica melhor, posso conectar vocês?"
   ],
   

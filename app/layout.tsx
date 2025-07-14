@@ -7,8 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alcides da Entre",
-  description: "Converse com o Alcides, assistente virtual da Entre - Design de Operações",
+  title: "Sebastião - Agente do Tom",
+  description: "Converse com o Sebastião, agente virtual do Tom Oliveira - Designer de Operações",
 };
 
 export default function RootLayout({

@@ -250,15 +250,15 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
           <Avatar className="w-10 h-10 border">
             <AvatarImage
               src="/ant-logo.svg"
-              alt="Alcides Avatar"
+              alt="Sebastião Avatar"
               width={40}
               height={40}
             />
-            <AvatarFallback>A</AvatarFallback>
+            <AvatarFallback>S</AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="text-sm font-medium leading-none">Alcides</h3>
-            <p className="text-sm text-muted-foreground">Assistente da Entre - Design de Operações</p>
+            <h3 className="text-sm font-medium leading-none">Sebastião</h3>
+            <p className="text-sm text-muted-foreground">Agente do Tom</p>
           </div>
         </>
       )}
@@ -606,7 +606,7 @@ function ChatArea() {
               <Avatar className="w-10 h-10 mb-4 border">
                 <AvatarImage
                   src="/ant-logo.svg"
-                  alt="Alcides Avatar"
+                  alt="Sebastião Avatar"
                   width={40}
                   height={40}
                 />
@@ -630,7 +630,7 @@ function ChatArea() {
                 <div className="flex items-center gap-3">
                   <BookOpenText className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    R$ 20M+ economizados, R$ 30M+ faturados - alguns dos resultados
+                    Milhões economizados, R$ 30M+ faturados - alguns dos resultados
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -640,7 +640,7 @@ function ChatArea() {
                   </p>
                 </div>
                   <p className="text-muted-foreground">
-                    R$ 20M+ economizados, R$ 30M+ faturados - resultados que falam por si
+                    Milhões economizados, R$ 30M+ faturados - resultados que falam por si
                   </p>
                 </div>
               </div>
@@ -664,9 +664,9 @@ function ChatArea() {
                       <Avatar className="w-8 h-8 mr-2 border">
                         <AvatarImage
                           src="/ant-logo.svg"
-                          alt="Alcides Avatar"
+                          alt="Sebastião Avatar"
                         />
-                        <AvatarFallback>A</AvatarFallback>
+                        <AvatarFallback>S</AvatarFallback>
                       </Avatar>
                     )}
                     <div

@@ -3,7 +3,7 @@ import { z } from "zod";
 import { retrieveContext, RAGSource } from "@/app/lib/utils";
 import crypto from "crypto";
 import customerSupportCategories from "@/app/lib/customer_support_categories.json";
-import { tomPerfil, respostasAcidas, perfilEscritaTom } from "@/app/lib/tom_perfil";
+import { tomPerfil, respostasAcidas, perfilEscritaTom } from "@/app/lib/tom_perfil_atualizado";
 import { tomCurriculo, detectarPedidoCurriculo } from "@/app/lib/tom_curriculo";
 
 const anthropic = new Anthropic({

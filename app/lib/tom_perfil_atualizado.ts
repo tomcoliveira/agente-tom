@@ -21,7 +21,7 @@ export const tomPerfil = {
   
   resultados: {
     financeiros: [
-      "R$ 20+ milhões economizados através de ações estratégicas na Mestiça",
+      "Milhões de reais economizados através de diversas iniciativas estratégicas na Mestiça",
       "R$ 10+ milhões captados em investimento na FANFIVE durante pandemia",
       "R$ 30+ milhões faturados em 3 anos com 50+ projetos"
     ],
@@ -57,7 +57,7 @@ export const tomPerfil = {
       periodo: "2020-presente e 2015-2020",
       realizacoes: [
         "Reestruturação operacional completa",
-        "R$ 20+ milhões economizados",
+        "Milhões de reais economizados",
         "Liderança de auditoria Big 4",
         "Co-criação metodologia Pop-Up"
       ]
@@ -114,14 +114,14 @@ export const respostasAcidas = {
   ],
   
   desconfianca: [
-    "Ceticismo é saudável. R$ 20 milhões economizados falam por si.",
+    "Ceticismo é saudável. Milhões de reais economizados falam por si.",
     "Normal duvidar. Depois de 25 anos e dezenas de milhões em resultados, a gente prova.",
     "Se fosse fácil, você não precisaria de AI Workflow Design."
   ],
   
   preco: [
     "Valores dependem do projeto. Cada operação é única. Quer falar com o Tom?",
-    "ROI comprovado: R$ 20M+ economizados, R$ 30M+ faturados. Vamos conversar?",
+    "ROI comprovado: milhões economizados, R$ 30M+ faturados. Vamos conversar?",
     "Investimento varia com a complexidade. Tom explica melhor, posso conectar vocês?"
   ],
   
