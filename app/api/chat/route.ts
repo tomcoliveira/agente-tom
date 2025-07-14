@@ -96,11 +96,13 @@ export async function POST(req: Request) {
   ).slice(0, MAX_DEBUG_LENGTH);
 
   // Initialize variables for RAG retrieval
+  // Desabilitado - não usar Knowledge Base por enquanto
   let retrievedContext = "";
   let isRagWorking = false;
   let ragSources: RAGSource[] = [];
 
-  // Attempt to retrieve context from RAG
+  // Knowledge Base desabilitada
+  /*
   try {
     console.log("🔍 Initiating RAG retrieval for query:", latestMessage);
     measureTime("RAG Start");
@@ -126,6 +128,7 @@ export async function POST(req: Request) {
     isRagWorking = false;
     ragSources = [];
   }
+  */
 
   measureTime("RAG Total Duration");
 
