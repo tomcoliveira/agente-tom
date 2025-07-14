@@ -639,10 +639,6 @@ function ChatArea() {
                     Meu agente, assim como eu, está em eterno treinamento. Mas eu tenho 44 anos de treino, ele só alguns meses. Seja gentil com o estagiário!
                   </p>
                 </div>
-                  <p className="text-muted-foreground">
-                    Milhões economizados, R$ 30M+ faturados - resultados que falam por si
-                  </p>
-                </div>
               </div>
             </div>
           ) : (
