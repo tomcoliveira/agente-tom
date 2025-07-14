@@ -618,19 +618,13 @@ function ChatArea() {
                 <div className="flex items-center gap-3">
                   <HandHelping className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Designer de Operações com 25 anos de experiência
+                    Designer de operações com 25 anos de experiência
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <WandSparkles className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Especialista em AI Workflow Design - onde IA potencializa resultados
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <BookOpenText className="text-muted-foreground" />
-                  <p className="text-muted-foreground">
-                    Milhões economizados, R$ 30M+ faturados - alguns dos resultados
+                    Fluxos, métodos & soluções para a equipe entregar mais
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
