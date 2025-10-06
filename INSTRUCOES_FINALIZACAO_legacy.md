@@ -21,6 +21,8 @@ git push origin main
 ### 2. PERGUNTAS INICIAIS DO AGENTE:
 As perguntas sugeridas já estão no arquivo tom_perfil.ts:
 - "O que é AI Workflow Design?"
+- "Que resultados o Tom já alcançou?"
+- "Como a Entre pode ajudar meu negócio?"
 - "Tom tem experiência com gestão de crises?"
 - "Posso agendar uma conversa?"
 

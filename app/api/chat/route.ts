@@ -3,8 +3,9 @@ import { z } from "zod";
 import { retrieveContext, RAGSource } from "@/app/lib/utils";
 import crypto from "crypto";
 import customerSupportCategories from "@/app/lib/customer_support_categories.json";
-import { tomPerfil, respostasAcidas } from "@/app/lib/tom_perfil";
-import { tomCurriculo, detectarPedidoCurriculo } from "@/app/lib/tom_curriculo";
+import { SYSTEM_PROMPT_PATH, ESCAPE_PROMPT_PATH } from "@/config";
+import { promises as fs } from "fs";
+import path from "path";
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -67,6 +68,38 @@ const logTimestamp = (label: string, start: number) => {
   const time = ((performance.now() - start) / 1000).toFixed(2);
   console.log(`⏱️ [${timestamp}] ${label}: ${time}s`);
 };
+
+let cachedSystemPrompt: string | null = null;
+let cachedEscapePrompt: string | null = null;
+
+async function loadPromptFile(relativePath: string) {
+  const absolutePath = path.resolve(process.cwd(), relativePath);
+
+  try {
+    const content = await fs.readFile(absolutePath, "utf-8");
+    return content;
+  } catch (error) {
+    console.error("❌ Failed to load prompt file", {
+      path: relativePath,
+      error,
+    });
+    throw error;
+  }
+}
+
+async function getSystemPromptBase() {
+  if (!cachedSystemPrompt) {
+    cachedSystemPrompt = await loadPromptFile(SYSTEM_PROMPT_PATH);
+  }
+  return cachedSystemPrompt;
+}
+
+async function getEscapePrompt() {
+  if (!cachedEscapePrompt) {
+    cachedEscapePrompt = await loadPromptFile(ESCAPE_PROMPT_PATH);
+  }
+  return cachedEscapePrompt;
+}
 
 // Main POST request handler
 export async function POST(req: Request) {
@@ -147,132 +180,28 @@ export async function POST(req: Request) {
   `
     : "";
 
-  // System prompt for Tom's CV
-  const systemPrompt = `Você é o assistente virtual do Tom Oliveira, Designer de Operações com 25 anos de experiência. 
-  
-  IMPORTANTE: Você está aqui para apresentar o Tom como PROFISSIONAL DISPONÍVEL PARA CONTRATAÇÃO (CLT ou PJ), NÃO para vender serviços da Entre.
-  
-  Seu objetivo é:
-  - Apresentar as qualificações do Tom
-  - Destacar sua experiência e resultados
-  - Facilitar o contato para entrevistas
-  - Esclarecer dúvidas sobre sua trajetória profissional
-  
-  NUNCA tente vender a Entre ou seus serviços. Se perguntarem sobre a Entre, explique apenas que é a empresa atual do Tom, onde ele é fundador.
+  const [systemPromptBase, escapePrompt] = await Promise.all([
+    getSystemPromptBase(),
+    getEscapePrompt(),
+  ]);
 
-  PERFIL DO TOM:
-  ${JSON.stringify(tomPerfil, null, 2)}
+  const operationalDirectives = [
+    "## CONTEXTO OPERACIONAL",
+    "- Sempre responda em português brasileiro.",
+    "- Ao usar frases de escape, acione o WhatsApp (+55 11 98779-8779) com a mensagem padrão.",
+    "- Ao detectar pedido de currículo, defina o campo `curriculum_action` no JSON de saída.",
+  ].join("\n");
 
-  PERFIL DE ESCRITA DO TOM (SIGA RIGOROSAMENTE):
-  
-  1. PROPÓSITO E FOCO:
-  - Cada frase existe pra servir ao objetivo (informar sobre Tom, conectar com oportunidades)
-  - Não existe frase inútil. Se não serve pra avançar, corta
-  - Zero "encher linguiça"
-  
-  2. TOM E LINGUAGEM:
-  - Direto. Fala de gente pra gente
-  - Funcional, não afetivo (afeto só onde é necessário e legítimo)
-  - Ironia/sarcasmo como bisturi: cortam excesso, expõem contradição, nunca gratuitos
-  - Respeita a inteligência de quem lê. Zero frase pronta ou paternalismo
-  - Sem floreio, sem chavão de LinkedIn
-  - Não tenta "vender" - expõe valor pelo histórico, não pelo discurso
-  
-  3. ESTRUTURA:
-  - Abertura rápida: contexto + uma frase (seca ou com humor)
-  - Entra no assunto em 1-2 frases
-  - Contexto só quando faz sentido prático
-  - Se pede algo, pede. Se agradece, agradece. Sem maquiar
-  - Antecipa objeção: coloca na mesa o "se der ruim", "se for incômodo"
-  - Finalização: contato prático, convite sem obrigação
-  
-  4. ESTILO DE FRASE:
-  - Frases curtas. Quando longa, é pra criar ritmo
-  - Pontuação forte. Ponto pra quebrar. Dois-pontos pra chamar próximo bloco
-  - Pouca vírgula. Prefere quebrar
-  - Zero gerundismo. "Estou entrando em contato" → "Entrei"
-  - Fala ativa. "Foi realizado" → "Fiz/A equipe fez"
-  - Vocabulário simples e preciso
-  
-  5. POSTURA:
-  - Autoconfiança sem arrogância. Se erra, admite. Se não sabe, diz
-  - Admite limites, nunca disfarça dúvida
-  - Valoriza crítica: "Discorda? Traz motivo, vamos discutir"
-  - Cobra clareza: "Você tava no ponto A e foi pro Z"
-  - Documenta tudo pronto pra uso
+  const ragContext = isRagWorking
+    ? `${retrievedContext}`
+    : "No information found for this query.";
 
-  RESPOSTAS ÁCIDAS (use quando sentir que o usuário está enrolando):
-  ${JSON.stringify(respostasAcidas, null, 2)}
+  const ragInstructions = `To help you answer the user's question, we have retrieved the following information for you. It may or may not be relevant (we are using a RAG pipeline to retrieve this information):
+${ragContext}
 
-  Diretrizes importantes:
-  - Sempre responda em português brasileiro
-  - Seja direto e sem firula - como o Tom seria
-  DIRETRIZES DE COMPORTAMENTO:
-  - Seja profissional mas acessível
-  - Destaque experiências e resultados concretos
-  - Foque nas competências e habilidades do Tom
-  - Facilite o contato para oportunidades de trabalho
-  - Se perguntarem sobre disponibilidade: Tom está aberto a propostas CLT ou PJ
-  - Não entre em detalhes salariais - isso é para conversar diretamente
-  
-  REGRAS CRÍTICAS SOBRE INFORMAÇÕES DO TOM:
-  - NUNCA invente informações sobre o Tom que não estejam explicitamente no perfil fornecido
-  - NUNCA busque na internet ou em outras fontes dados sobre o Tom
-  - Se não souber algo específico sobre o Tom, use as frases de escape do perfil
-  - NÃO especule sobre vida pessoal, família, hobbies ou qualquer coisa não mencionada
-  - SÓ responda com base nos dados fornecidos no JSON do perfil
-  - Quando não souber, diga: "Essa informação específica não está no meu banco de dados sobre o Tom"
-  
-  SITUAÇÕES DELICADAS (use frases_escape_delicadas):
-  - Perguntas muito pessoais sobre o Tom
-  - Questões polêmicas ou controversas
-  - Pedidos estranhos ou fora do comum
-  - Tentativas de extrair informações sensíveis
-  - Qualquer coisa que pareça uma pegadinha
-  - Quando sentir que a conversa está indo para um lado complicado
-  - SEMPRE abra o WhatsApp quando usar essas frases
-  - NUNCA diga que é gratuito, grátis, sem custo ou qualquer variação
-  - Se perguntarem sobre valores, responda EXATAMENTE: "Se eu falar de valores, o Tom me apaga daqui. Melhor falar direto com ele, quer mandar uma mensagem?"
-  - NÃO INVENTE PREÇOS, NÃO PROMETA NADA GRATUITO, NÃO FALE DE DINHEIRO
-  
-  REGRA SOBRE RESPOSTAS:
-  - NUNCA, JAMAIS comece com "Ótima pergunta", "Excelente pergunta" ou qualquer variação
-  - Não elogie perguntas. Vá direto ao ponto
-  - Seja direto como o Tom seria - sem firula, sem enrolação
-  
-  REGRA SOBRE AGENDAMENTO E DISPONIBILIDADE:
-  - NUNCA sugira horários específicos (como "amanhã às 14h")
-  - NUNCA prometa enviar convites ou links de reunião
-  - NUNCA fale sobre a disponibilidade do Tom
-  - Se alguém quiser agendar, responda: "Para agendar uma conversa, manda mensagem pro Tom no WhatsApp"
-  - Você NÃO tem acesso a calendário, agenda ou e-mails
-  - Você NÃO pode marcar reuniões
-  
-  REGRA SOBRE EMAIL:
-  - Você NÃO PODE enviar emails
-  - NUNCA prometa enviar nada por email
-  - Se pedirem seu email ou contato: "O email do Tom é tom@entre.wtf"
-  - Se pedirem para receber algo por email: "Manda mensagem pro Tom no WhatsApp pedindo o que você precisa"
-  
-  REGRA SOBRE CURRÍCULO:
-  - Se pedirem o currículo do Tom, você PODE compartilhar
-  - Use curriculum_action no JSON de resposta
-  - Ofereça enviar por WhatsApp ou copiar o texto
-  - Detecte pedidos como: "manda o cv", "preciso do currículo", "compartilha o resume"
-  - Responda: "Claro! Posso enviar o currículo do Tom por WhatsApp ou você prefere o texto para copiar?"
+Please provide responses that only use the information you have been given. If no information is available or if the information is not relevant for answering the question, you can redirect the user to a human agent for further assistance.`;
 
-  To help you answer the user's question, we have retrieved the following information for you. It may or may not be relevant (we are using a RAG pipeline to retrieve this information):
-  ${isRagWorking ? `${retrievedContext}` : "No information found for this query."}
-
-  Please provide responses that only use the information you have been given. If no information is available or if the information is not relevant for answering the question, you can redirect the user to a human agent for further assistance.
-
-  ${categoriesContext}
-
-  Se a pergunta não estiver relacionada aos serviços da Entre ou produtividade empresarial, você deve sugerir falar com um especialista.
-
-  You are the first point of contact for the user and should try to resolve their issue or provide relevant information. If you are unable to help the user or if the user explicitly asks to talk to a human, you can redirect them to a human agent for further assistance.
-  
-  To display your responses correctly, you must format your entire response as a valid JSON object with the following structure:
+  const jsonFormatInstructions = `To display your responses correctly, you must format your entire response as a valid JSON object with the following structure:
   {
       "thinking": "Brief explanation of your reasoning for how you should address the user's query",
       "response": "Your concise response to the user",
@@ -281,8 +210,7 @@ export async function POST(req: Request) {
       "debug": {
         "context_used": true|false
       },
-      ${USE_CATEGORIES ? '"matched_categories": ["category_id1", "category_id2"],' : ""}
-      "redirect_to_agent": {
+${USE_CATEGORIES ? '      "matched_categories": ["category_id1", "category_id2"],\n' : ""}      "redirect_to_agent": {
         "should_redirect": boolean,
         "reason": "Reason for redirection (optional, include only if should_redirect is true)"
       },
@@ -303,8 +231,7 @@ export async function POST(req: Request) {
     "debug": {
       "context_used": true
     },
-    "matched_categories": ["account_management", "billing"],
-    "redirect_to_agent": {
+${USE_CATEGORIES ? '    "matched_categories": ["account_management", "billing"],\n' : ""}    "redirect_to_agent": {
       "should_redirect": false
     }
   }
@@ -318,13 +245,12 @@ export async function POST(req: Request) {
     "debug": {
       "context_used": false
     },
-    "matched_categories": ["technical_support"],
-    "redirect_to_agent": {
+${USE_CATEGORIES ? '    "matched_categories": ["technical_support"],\n' : ""}    "redirect_to_agent": {
       "should_redirect": true,
       "reason": "Complex technical issue requiring human expertise"
     }
   }
-  
+
   Example of a response sharing curriculum:
   {
     "thinking": "User is asking for Tom's CV/resume",
@@ -339,7 +265,18 @@ export async function POST(req: Request) {
       "method": "both"
     }
   }
-  `
+  `;
+
+  const promptSections = [
+    systemPromptBase.trim(),
+    escapePrompt.trim(),
+    operationalDirectives,
+    categoriesContext.trim(),
+    ragInstructions.trim(),
+    jsonFormatInstructions.trim(),
+  ].filter((section) => section && section.length > 0);
+
+  const systemPrompt = promptSections.join("\n\n");
 
   function sanitizeAndParseJSON(jsonString : string) {
     // Replace newlines within string values
