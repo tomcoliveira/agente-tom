@@ -612,7 +612,7 @@ function ChatArea() {
                 />
               </Avatar>
               <h2 className="text-2xl font-semibold mb-8">
-                Olá, sou o assistente do Tom Oliveira
+                Olá, sou o assistente do Tom Cândido
               </h2>
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
